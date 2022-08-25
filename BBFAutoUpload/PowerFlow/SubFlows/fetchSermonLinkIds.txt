@@ -1,0 +1,6 @@
+Scripting.RunPowershellScript Script: $'''$x = get-content \'C:\\BBFAutoUpload\\tempFiles\\sermons\';
+
+$x -replace \"\\D+\", \' \';
+''' ScriptOutput=> PS
+Text.Replace Text: PS TextToFind: 10059398334177 IsRegEx: False IgnoreCase: False ReplaceWith: $'''\'''' ActivateEscapeSequences: False Result=> PS
+Text.ParseText.RegexParse Text: PS TextToFind: $'''([A-Za-z0-9])\\d{11,17}''' StartingPosition: 0 IgnoreCase: True Matches=> Matches

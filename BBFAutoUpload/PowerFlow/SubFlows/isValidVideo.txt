@@ -1,0 +1,13 @@
+SET matchIndex TO 8
+File.ReadTextFromFile.ReadText File: $'''C:\\BBFAutoUpload\\links\\links.txt''' Encoding: File.TextFileEncoding.UTF8 Content=> links
+LOOP WHILE (matchIndex) > (0)
+CALL replaceTab
+Variables.DecreaseVariable Value: matchIndex DecrementValue: 2
+SET currentLink TO Matches[matchIndex]
+Text.Trim Text: currentLink TrimOption: Text.TrimOption.Both TrimmedText=> SermonLink
+File.WriteText File: $'''C:\\BBFAutoUpload\\tempFiles\\tempLinks.txt''' TextToWrite: currentLink AppendNewLine: True IfFileExists: File.IfFileExists.Append Encoding: File.FileEncoding.Unicode
+IF NotContains(links, currentLink, False) THEN
+SET SermonLink TO $'''https://www.sermonaudio.com/solo/bbbfohio/sermons/%currentLink%'''
+CALL getSermonInformation
+END
+END

@@ -1,0 +1,5 @@
+IF newContent = $'''TRUE''' THEN
+File.ReadTextFromFile.ReadText File: $'''C:\\BBFAutoUpload\\tempFiles\\tempLinks.txt''' Encoding: File.TextFileEncoding.UTF8 Content=> newLinks
+File.WriteText File: $'''C:\\BBFAutoUpload\\links\\links.txt''' TextToWrite: newLinks AppendNewLine: False IfFileExists: File.IfFileExists.Overwrite Encoding: File.FileEncoding.Unicode
+END
+File.WriteText File: $'''C:\\BBFAutoUpload\\tempFiles\\tempLinks.txt''' AppendNewLine: False IfFileExists: File.IfFileExists.Overwrite Encoding: File.FileEncoding.Unicode

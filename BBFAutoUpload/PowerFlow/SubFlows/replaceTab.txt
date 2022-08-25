@@ -1,0 +1,11 @@
+IF (UIAutomation.IfWindow.IsOpenByTitleClass Title: $'''Upload videos at Rumble - Google Chrome''' Class: $'''''') THEN
+WebAutomation.LaunchChrome.AttachToChromeByUrl TabUrl: $'''https://rumble.com/upload.php''' AttachTimeout: 5 BrowserInstance=> close
+LOOP LoopIndex FROM 0 TO 60 STEP 1
+IF (WebAutomation.IfWebPageContains.WebPageContainsText BrowserInstance: close Text: $'''VIDEO UPLOAD COMPLETE!''') THEN
+UIAutomation.CloseWindow.CloseByTitleClass Title: $'''Upload videos at Rumble - Google Chrome''' Class: $''''''
+MouseAndKeyboard.SendKeys.FocusAndSendKeys TextToSend: $'''{Return}''' DelayBetweenKeystrokes: 10 SendTextAsHardwareKeys: False
+EXIT FUNCTION
+END
+WAIT 60
+END
+END

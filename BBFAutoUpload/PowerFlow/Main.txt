@@ -1,0 +1,5 @@
+Web.DownloadFromWeb.DownloadToFile Url: $'''https://www.sermonaudio.com/solo/bbbfohio/sermons/''' FilePath: $'''C:\\BBFAutoUpload\\tempFiles\\sermons''' ConnectionTimeout: 30 FollowRedirection: True ClearCookies: False UserAgent: $'''Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.21) Gecko/20100312 Firefox/3.6''' Encoding: Web.Encoding.AutoDetect AcceptUntrustedCertificates: False DownloadedFile=> DownloadedFile
+CALL fetchSermonLinkIds
+CALL isValidVideo
+CALL cleanUp
+EXIT Code: 0
